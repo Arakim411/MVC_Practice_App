@@ -9,12 +9,15 @@ object Constants {
     const val BASE_URL_FOR_PHOTO = "https://image.tmdb.org/t/p/w500"
 
     @Parcelize
-    enum class MovieListType : Parcelable {
-        POPULAR,
-        TOP_RATED,
-        UPCOMING;
-
+    enum class ListType : Parcelable {
+        MOVIE_POPULAR,
+        MOVIE_TOP_RATED,
+        MOVIE_UPCOMING,
+        TV_LATEST,
+        TV_POPULAR,
+        TV_TOP_RATED
     }
 
-    val allMovieListType = arrayListOf<MovieListType>(MovieListType.POPULAR,MovieListType.TOP_RATED,MovieListType.UPCOMING)
+    val allMovieListType = arrayListOf(ListType.MOVIE_POPULAR,ListType.MOVIE_TOP_RATED,ListType.MOVIE_UPCOMING)
+    val allTvShowListType = arrayListOf(ListType.TV_TOP_RATED,ListType.TV_POPULAR,ListType.TV_LATEST)
 }

@@ -4,7 +4,8 @@ import androidx.annotation.UiThread
 import com.applications.mvc_practice_app.networking.Constants
 import com.applications.mvc_practice_app.networking.Apis.MovieApi
 import com.applications.mvc_practice_app.networking.Apis.TvShowApi
-import com.applications.mvc_practice_app.screens.movieListFragmentComponents.FetchMovieListUseCase
+import com.applications.mvc_practice_app.screens.ListFragmentComponents.FetchMovieListUseCase
+import com.applications.mvc_practice_app.screens.ListFragmentComponents.FetchTvShowListUseCase
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -23,4 +24,6 @@ class AppCompositionRoot {
     private  val tvShowApi by lazy { retrofit.create(TvShowApi::class.java) }
 
     val fetchMovieUseCase = FetchMovieListUseCase(movieApi)
+
+    val fetchTvShowUseCase = FetchTvShowListUseCase(tvShowApi)
 }

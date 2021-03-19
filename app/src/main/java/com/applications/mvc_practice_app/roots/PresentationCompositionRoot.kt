@@ -9,9 +9,11 @@ class PresentationCompositionRoot(appCompatActivity: AppCompatActivity) {
     val fragmentRoots = FragmentRoots(appCompatActivity.supportFragmentManager)
 
     val fetchMovieUseCase get() = activityCompositionRoot.fetchMovieUseCase
+    val fetchTvShowUseCase get() = activityCompositionRoot.fetchTvShowUseCase
     // views Mvc Factory
-    val movieViewsMvcFactory get() =  activityCompositionRoot.moviesViewsMvc
-    val navigatorViewsMvcFactory get() = activityCompositionRoot.navigatorViewsMvc
+    val movieViewsMvcFactory get() =  activityCompositionRoot.showDataViewsMvc
+    val homeViewsMvcFactory get() = activityCompositionRoot.navigatorViewsMvc
+    val detailsViewsMvcFactory get() = activityCompositionRoot.detailsViewsMvc
 
 
     // other

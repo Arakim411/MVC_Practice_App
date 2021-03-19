@@ -8,7 +8,6 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-@Entity(tableName = "tvShow_table")
 data class TvShow(@PrimaryKey
                   @SerializedName("id")
                   val id: Int,

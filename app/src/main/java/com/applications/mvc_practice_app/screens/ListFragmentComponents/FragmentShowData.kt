@@ -1,29 +1,29 @@
-package com.applications.mvc_practice_app.screens.movieListFragmentComponents
+package com.applications.mvc_practice_app.screens.ListFragmentComponents
 
-import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.applications.mvc_practice_app.listeners.ViewerEvents
+import com.applications.mvc_practice_app.FragmentToolBarData
+import com.applications.mvc_practice_app.TMDBData
 import com.applications.mvc_practice_app.model.movie.Movie
 import com.applications.mvc_practice_app.networking.Constants
 import com.applications.mvc_practice_app.screens.common.BaseFragment
 import com.applications.mvc_practice_app.toStringResources
-import kotlinx.android.synthetic.main.fragment_show_movies.view.*
+import kotlinx.android.synthetic.main.fragment_show_data.view.*
 import kotlinx.coroutines.*
-import java.lang.IllegalArgumentException
+import java.lang.Error
 
-private const val TAG = "fragment_movies"
+private const val TAG = "fragment_show_data"
 private const val param_type = "param_type"
 
-class FragmentShowMovies : BaseFragment(), ShowMoviesViewsMvc.MovieRecyclerViewEvents, ShowMoviesViewsMvc.MovieViewsMvcEvents {
+class FragmentShowMovies : BaseFragment(), ShowDataViewsMvc.RecyclerViewEvents, ShowDataViewsMvc.DataViewsMvcEvents {
 
     private val coroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
-    private lateinit var viewsMvc: ShowMoviesViewsMvc
+    private lateinit var viewsMvc: ShowDataViewsMvc
     private var isDataLoaded = false
-    private lateinit var movieListType: Constants.MovieListType
+    private lateinit var listType: Constants.ListType
     private var page = 1
     private var maxPage = 1
 
@@ -36,9 +36,7 @@ class FragmentShowMovies : BaseFragment(), ShowMoviesViewsMvc.MovieRecyclerViewE
     }
 
     override fun onStart() {
-        movieListType = requireArguments().getParcelable<Constants.MovieListType>(param_type) ?: throw error("Fragment must be created by getInstance and contains in arguments movie list type")
-
-       viewerEvents?.setTitle(movieListType.toStringResources(resources))
+        listType = requireArguments().getParcelable<Constants.ListType>(param_type) ?: throw error("Fragment must be created by getInstance and contains in arguments movie list type")
 
         viewsMvc.addMovieRecyclerViewEvent(this)
         viewsMvc.addListener(this)
@@ -54,18 +52,31 @@ class FragmentShowMovies : BaseFragment(), ShowMoviesViewsMvc.MovieRecyclerViewE
         super.onStop()
     }
 
-    private fun fetchMovies(type: Constants.MovieListType, moviesPage: Int) {
+    private fun fetchMovies(type: Constants.ListType, page: Int) {
         coroutineScope.launch {
             val startTime = System.currentTimeMillis()
             viewsMvc.showProgressIcon()
             try {
-                val response = compositionRoot.fetchMovieUseCase.getMovieList(moviesPage, type)
+                if(Constants.allMovieListType.contains(type)){
+                val response = compositionRoot.fetchMovieUseCase.getMovieList(page, type)
                 if (response is FetchMovieListUseCase.Result.Success && response.movieList.movies.isNotEmpty()) {
                     viewsMvc.bindMovies(response.movieList)
-                   viewerEvents?.setPage(page, response.movieList.totalPages)
                     maxPage = response.movieList.totalPages
+                    setToolBarData(FragmentToolBarData(listType.toStringResources(resources), this@FragmentShowMovies.page,maxPage))
                 } else {
                     onFetchFailed()
+                }
+                }else if(Constants.allTvShowListType.contains(type)){
+                    val response = compositionRoot.fetchTvShowUseCase.getTvShowList(page,type)
+                    if (response is FetchTvShowListUseCase.Result.Success && response.tvShowList.tvShows.isNotEmpty()) {
+                        viewsMvc.bindTvShow(response.tvShowList)
+                        maxPage = response.tvShowList.totalPages
+                        setToolBarData(FragmentToolBarData(listType.toStringResources(resources), this@FragmentShowMovies.page,maxPage))
+                    } else {
+                        onFetchFailed()
+                    }
+                }else{
+                    throw Error("unknown list type")
                 }
 
                 isDataLoaded = true
@@ -76,7 +87,7 @@ class FragmentShowMovies : BaseFragment(), ShowMoviesViewsMvc.MovieRecyclerViewE
                 }
             } finally {
                 val downloadingTime = System.currentTimeMillis() - startTime
-                Log.i(TAG, "movies downloaded in $downloadingTime millisSeconds")
+                Log.i(TAG, "data downloaded in $downloadingTime millisSeconds")
                 viewsMvc.hideProgressIcon()
             }
         }
@@ -87,8 +98,11 @@ class FragmentShowMovies : BaseFragment(), ShowMoviesViewsMvc.MovieRecyclerViewE
             compositionRoot.dialogNavigator.showConnectionErrorDialog()
     }
 
-    override fun onMovieClick(movie: Movie) {
-
+    override fun onItemClick(tmdbData: TMDBData) {
+        viewerEvents?.addDetailsFragment(tmdbData)
+        if(tmdbData is Movie){
+            Log.d("XD5",tmdbData.title)
+        }
     }
 
     private fun loadPage(page: Int){
@@ -97,7 +111,7 @@ class FragmentShowMovies : BaseFragment(), ShowMoviesViewsMvc.MovieRecyclerViewE
         else
             viewsMvc.rootView.btnLastPage.visibility = View.INVISIBLE
 
-        fetchMovies(movieListType,page)
+        fetchMovies(listType,page)
     }
 
     override fun onNextClick() {
@@ -112,7 +126,7 @@ class FragmentShowMovies : BaseFragment(), ShowMoviesViewsMvc.MovieRecyclerViewE
 
 
     companion object{
-        fun getInstance(type: Constants.MovieListType): FragmentShowMovies = FragmentShowMovies().apply {
+        fun getInstance(type: Constants.ListType): FragmentShowMovies = FragmentShowMovies().apply {
            arguments = Bundle().apply {
                putParcelable(param_type,type)
            }

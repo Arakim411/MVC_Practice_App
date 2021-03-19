@@ -1,4 +1,4 @@
-package com.applications.mvc_practice_app.screens.movieListFragmentComponents
+package com.applications.mvc_practice_app.screens.ListFragmentComponents
 
 import com.applications.mvc_practice_app.model.movie.MovieList
 import com.applications.mvc_practice_app.networking.Apis.MovieApi
@@ -16,14 +16,15 @@ class FetchMovieListUseCase(private val movieApi: MovieApi) {
 
 
 
-    suspend fun getMovieList(page: Int, type: Constants.MovieListType): Result {
+    suspend fun getMovieList(page: Int, type: Constants.ListType): Result {
 
         return withContext(Dispatchers.IO) {
             try {
                 val response = when (type) {
-                    Constants.MovieListType.POPULAR -> movieApi.getPopularMovies(Constants.API_KEY, page)
-                    Constants.MovieListType.TOP_RATED -> movieApi.getTopRatedMovies(Constants.API_KEY, page)
-                    Constants.MovieListType.UPCOMING -> movieApi.getUpcomingMovies(Constants.API_KEY, page)
+                    Constants.ListType.MOVIE_POPULAR -> movieApi.getPopularMovies(Constants.API_KEY, page)
+                    Constants.ListType.MOVIE_TOP_RATED -> movieApi.getTopRatedMovies(Constants.API_KEY, page)
+                    Constants.ListType.MOVIE_UPCOMING -> movieApi.getUpcomingMovies(Constants.API_KEY, page)
+                    else -> throw IllegalArgumentException("It is not movie type")
                 }
                 val movieList = response.body()
 

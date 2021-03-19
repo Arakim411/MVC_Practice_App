@@ -5,35 +5,63 @@
     android:layout_height="match_parent"
     tools:context=".screens.fragmentHome.FragmentHome">
 
- <LinearLayout
-     android:layout_width="match_parent"
-     android:layout_height="match_parent"
-     android:gravity="center_horizontal"
-     android:orientation="vertical"
-     android:padding="16dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp">
 
 
-     <Button
-         android:id="@+id/popular_movies"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-        android:text="Popular Movies"
-         android:ems="15"/>
+            <Button
+                android:id="@+id/popular_movies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="15"
+                android:text="@string/popularMovies" />
 
-     <Button
-         android:id="@+id/top_rated_movies"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:text="Top Rated Movies"
-         android:ems="15"/>
+            <Button
+                android:id="@+id/top_rated_movies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="15"
+                android:text="@string/topRatedMovies" />
 
-     <Button
-         android:id="@+id/upcoming_movies"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:ems="15"
-         android:text="Upcoming Movies"/>
+            <Button
+                android:id="@+id/upcoming_movies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="15"
+                android:text="@string/upcomingMovies" />
 
- </LinearLayout>
+            <Button
+                android:id="@+id/popular_tvShow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                android:ems="15"
+                android:text="@string/popularTvShow" />
 
+            <Button
+                android:id="@+id/topRated_tvShow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="15"
+                android:text="@string/topRatedTvShow" />
+
+            <Button
+                android:id="@+id/latest_tvShow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="15"
+                android:text="@string/latestTvShow"
+                android:visibility="gone" />
+
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>

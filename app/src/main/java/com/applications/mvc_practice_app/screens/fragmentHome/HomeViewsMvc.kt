@@ -13,25 +13,43 @@ class HomeViewsMvc(layoutInflater: LayoutInflater, view: ViewGroup?) :
     init {
         rootView.popular_movies.setOnClickListener {
             listeners.forEach {
-                it.onButtonClick(Constants.MovieListType.POPULAR)
+                it.onButtonClick(Constants.ListType.MOVIE_POPULAR)
             }
         }
 
         rootView.top_rated_movies.setOnClickListener {
             listeners.forEach {
-                it.onButtonClick(Constants.MovieListType.TOP_RATED)
+                it.onButtonClick(Constants.ListType.MOVIE_TOP_RATED)
             }
         }
 
         rootView.upcoming_movies.setOnClickListener {
             listeners.forEach {
-                it.onButtonClick(Constants.MovieListType.UPCOMING)
+                it.onButtonClick(Constants.ListType.MOVIE_UPCOMING)
+            }
+        }
+
+        rootView.latest_tvShow.setOnClickListener {
+            listeners.forEach {
+                it.onButtonClick(Constants.ListType.TV_LATEST)
+            }
+        }
+
+        rootView.popular_tvShow.setOnClickListener {
+            listeners.forEach {
+                it.onButtonClick(Constants.ListType.TV_POPULAR)
+            }
+        }
+
+        rootView.topRated_tvShow.setOnClickListener{
+            listeners.forEach {
+                it.onButtonClick(Constants.ListType.TV_TOP_RATED)
             }
         }
 
     }
 
     interface FragmentHomeEvent {
-        fun onButtonClick(type: Constants.MovieListType)
+        fun onButtonClick(type: Constants.ListType)
     }
 }

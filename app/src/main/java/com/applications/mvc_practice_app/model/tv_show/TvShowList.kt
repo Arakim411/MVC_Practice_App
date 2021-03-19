@@ -4,7 +4,7 @@ import android.util.Log
 import com.google.gson.annotations.SerializedName
 
 data class TvShowList(
-        @SerializedName("result")
+        @SerializedName("results")
         val tvShows: List<TvShow>,
         @SerializedName("total_pages")
         val totalPages: Int,

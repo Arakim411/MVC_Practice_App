@@ -5,8 +5,14 @@
     <string name="upcomingMovies">Upcoming Movies</string>
     <string name="topRatedMovies">Top Rated Movies </string>
     <string name="popularMovies">Popular Movies</string>
+    <string name="latestTvShow">Latest TvShow</string>
+    <string name="popularTvShow">Popular TvShow</string>
+    <string name="topRatedTvShow">Top Rated TvShow</string>
     <string name="Page">Page: %d/%d</string>
     <string name="server_error_dialog_title">Connection Error</string>
     <string name="server_error_dialog_message">You are not connected to internet</string>
     <string name="server_error_dialog_button_caption">OK</string>
+
+    <string name="overViewExampleText">Determined to ensure Superman\'s ultimate sacrifice was not in vain, Bruce Wayne aligns forces with Diana Prince with plans to recruit a team of metahumans to protect the world from an approaching threat of catastrophic proportions</string>
+
 </resources>

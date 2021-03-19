@@ -4,9 +4,8 @@ import android.os.Bundle
 import com.applications.mvc_practice_app.listeners.ViewerEvents
 import com.applications.mvc_practice_app.networking.Constants
 import com.applications.mvc_practice_app.screens.fragmentHome.FragmentHome
-import com.applications.mvc_practice_app.screens.movieListFragmentComponents.FragmentShowMovies
+import com.applications.mvc_practice_app.screens.ListFragmentComponents.FragmentShowMovies
 import kotlinx.android.synthetic.main.activity_main.*
-
 
 private const val TAG = "mainActivity"
 
@@ -19,22 +18,31 @@ class MainActivity : BaseActivity(), ViewerEvents {
 
         setMyToolbar(myToolbar)
 
-        if(savedInstanceState== null)
-        compositionRoot.fragmentRoots.addFragment(FragmentHome(),fragmentContainer.id)
+
+        if (savedInstanceState == null)
+            compositionRoot.fragmentRoots.addDataFragment(FragmentHome(), fragmentContainer.id)
 
     }
 
 
     override fun setTitle(title: kotlin.String) {
-        myToolbar.title = title
+        myToolbar.setTitle(title)
     }
 
-    override fun setPage(page: Int, maxPage: Int) {
-       myToolbar.setPage(page,maxPage)
+    override fun setPage(page: Int?, maxPage: Int?) {
+        if (page != null && maxPage != null) {
+            myToolbar.setPage(page, maxPage)
+            myToolbar.setPageEnabled(true)
+        } else
+            myToolbar.setPageEnabled(false)
     }
 
-    override fun addFragment(type: Constants.MovieListType) {
-        compositionRoot.fragmentRoots.addFragment(FragmentShowMovies.getInstance(type),fragmentContainer.id)
+    override fun addDataFragment(type: Constants.ListType) {
+        compositionRoot.fragmentRoots.addDataFragment(FragmentShowMovies.getInstance(type), fragmentContainer.id)
+    }
+
+    override fun addDetailsFragment(data: TMDBData) {
+        compositionRoot.fragmentRoots.addDetailsFragment(data,fragmentContainer.id)
     }
 
 

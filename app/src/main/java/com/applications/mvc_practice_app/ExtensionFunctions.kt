@@ -1,14 +1,16 @@
 package com.applications.mvc_practice_app
 
-import android.app.Activity
 import android.content.res.Resources
-import androidx.fragment.app.Fragment
+import android.provider.ContactsContract
+import com.applications.mvc_practice_app.model.movie.Movie
 import com.applications.mvc_practice_app.networking.Constants
 
-fun Constants.MovieListType.toStringResources(resources: Resources): String = when (this) {
-    Constants.MovieListType.POPULAR -> resources.getString(R.string.popularMovies)
-    Constants.MovieListType.TOP_RATED -> resources.getString(R.string.topRatedMovies)
-    Constants.MovieListType.UPCOMING -> resources.getString(R.string.upcomingMovies)
+fun Constants.ListType.toStringResources(resources: Resources): String = when (this) {
+    Constants.ListType.MOVIE_POPULAR -> resources.getString(R.string.popularMovies)
+    Constants.ListType.MOVIE_TOP_RATED -> resources.getString(R.string.topRatedMovies)
+    Constants.ListType.MOVIE_UPCOMING -> resources.getString(R.string.upcomingMovies)
+    Constants.ListType.TV_POPULAR -> resources.getString(R.string.popularTvShow)
+    Constants.ListType.TV_LATEST -> resources.getString(R.string.latestTvShow)
+    Constants.ListType.TV_TOP_RATED -> resources.getString(R.string.topRatedTvShow)
 
 }
-
