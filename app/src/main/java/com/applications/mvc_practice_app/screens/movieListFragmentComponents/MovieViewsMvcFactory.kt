@@ -1,4 +1,4 @@
-package com.applications.mvc_practice_app.screens.MovieListFragmentComponents
+package com.applications.mvc_practice_app.screens.movieListFragmentComponents
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

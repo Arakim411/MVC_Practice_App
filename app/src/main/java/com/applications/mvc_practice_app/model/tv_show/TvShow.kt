@@ -1,10 +1,13 @@
 package com.applications.mvc_practice_app.model.tv_show
 
+import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.applications.mvc_practice_app.RecyclerViewData
+import com.applications.mvc_practice_app.TMDBData
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 @Entity(tableName = "tvShow_table")
 data class TvShow(@PrimaryKey
                   @SerializedName("id")
@@ -16,7 +19,7 @@ data class TvShow(@PrimaryKey
                   @SerializedName("poster_path")
                   val posterPath: String?,
                   @SerializedName("vote_average")
-                  val voteAverage: Float?):  RecyclerViewData() {
+                  val voteAverage: Float?):  TMDBData(), Parcelable {
 
     override fun toString(): String {
         return "id: $id \n" +

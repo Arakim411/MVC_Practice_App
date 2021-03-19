@@ -1,4 +1,4 @@
-package com.applications.mvc_practice_app.screens.MovieListFragmentComponents
+package com.applications.mvc_practice_app.screens.movieListFragmentComponents
 
 import com.applications.mvc_practice_app.model.movie.MovieList
 import com.applications.mvc_practice_app.networking.Apis.MovieApi
@@ -6,7 +6,6 @@ import com.applications.mvc_practice_app.networking.Constants
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import retrofit2.Response
 
 class FetchMovieListUseCase(private val movieApi: MovieApi) {
 

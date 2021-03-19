@@ -2,4 +2,11 @@
     <string name="app_name">MVC_Practice_App</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="upcomingMovies">Upcoming Movies</string>
+    <string name="topRatedMovies">Top Rated Movies </string>
+    <string name="popularMovies">Popular Movies</string>
+    <string name="Page">Page: %d/%d</string>
+    <string name="server_error_dialog_title">Connection Error</string>
+    <string name="server_error_dialog_message">You are not connected to internet</string>
+    <string name="server_error_dialog_button_caption">OK</string>
 </resources>

@@ -1,7 +1,7 @@
 package com.applications.mvc_practice_app
 
 import android.app.Application
-import com.applications.mvc_practice_app.screens.roots.AppCompositionRoot
+import com.applications.mvc_practice_app.roots.AppCompositionRoot
 
 class MyApplication : Application() {
 

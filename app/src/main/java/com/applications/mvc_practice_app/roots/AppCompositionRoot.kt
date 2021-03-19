@@ -1,10 +1,10 @@
-package com.applications.mvc_practice_app.screens.roots
+package com.applications.mvc_practice_app.roots
 
 import androidx.annotation.UiThread
 import com.applications.mvc_practice_app.networking.Constants
 import com.applications.mvc_practice_app.networking.Apis.MovieApi
 import com.applications.mvc_practice_app.networking.Apis.TvShowApi
-import com.applications.mvc_practice_app.screens.MovieListFragmentComponents.FetchMovieListUseCase
+import com.applications.mvc_practice_app.screens.movieListFragmentComponents.FetchMovieListUseCase
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
