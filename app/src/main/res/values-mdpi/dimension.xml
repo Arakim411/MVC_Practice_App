@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="imageWidthLand">37dp</dimen>
+    <dimen name="imageHighLand">50dp</dimen>
+
+    <dimen name="imageWidthPortrait">76dp</dimen>
+    <dimen name="imageHighPortrait">100dp</dimen>
+</resources>

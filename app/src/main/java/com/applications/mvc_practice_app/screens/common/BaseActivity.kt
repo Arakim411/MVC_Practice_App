@@ -1,4 +1,4 @@
-package com.applications.mvc_practice_app
+package com.applications.mvc_practice_app.screens.common
 
 import android.os.Bundle
 import android.os.PersistableBundle
@@ -13,7 +13,7 @@ import com.applications.mvc_practice_app.screens.common.BaseFragment
 private const val BACK_ARROW_KEY = "back_arrow_key"
 
 
-open class BaseActivity() : AppCompatActivity() {
+open class BaseActivity : AppCompatActivity() {
     private var myToolbar: MyToolbar? = null
     val compositionRoot by lazy { PresentationCompositionRoot(this) }
 

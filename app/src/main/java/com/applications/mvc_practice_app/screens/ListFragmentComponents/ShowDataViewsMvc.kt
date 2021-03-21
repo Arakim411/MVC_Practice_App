@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.applications.mvc_practice_app.R
-import com.applications.mvc_practice_app.TMDBData
+import com.applications.mvc_practice_app.model.TMDBData
 import com.applications.mvc_practice_app.model.movie.MovieList
 import com.applications.mvc_practice_app.model.tv_show.TvShowList
 import com.applications.mvc_practice_app.screens.adapters.MyRecyclerViewAdapter

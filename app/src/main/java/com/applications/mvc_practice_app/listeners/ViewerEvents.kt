@@ -1,7 +1,6 @@
 package com.applications.mvc_practice_app.listeners
 
-import android.provider.ContactsContract
-import com.applications.mvc_practice_app.TMDBData
+import com.applications.mvc_practice_app.model.TMDBData
 import com.applications.mvc_practice_app.networking.Constants
 
 interface ViewerEvents {

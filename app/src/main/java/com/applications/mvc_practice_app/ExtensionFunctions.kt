@@ -1,9 +1,9 @@
 package com.applications.mvc_practice_app
 
 import android.content.res.Resources
-import android.provider.ContactsContract
-import com.applications.mvc_practice_app.model.movie.Movie
+
 import com.applications.mvc_practice_app.networking.Constants
+
 
 fun Constants.ListType.toStringResources(resources: Resources): String = when (this) {
     Constants.ListType.MOVIE_POPULAR -> resources.getString(R.string.popularMovies)
@@ -14,3 +14,6 @@ fun Constants.ListType.toStringResources(resources: Resources): String = when (t
     Constants.ListType.TV_TOP_RATED -> resources.getString(R.string.topRatedTvShow)
 
 }
+
+
+

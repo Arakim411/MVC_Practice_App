@@ -1,9 +1,8 @@
 package com.applications.mvc_practice_app.model.tv_show
 
 import android.os.Parcelable
-import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.applications.mvc_practice_app.TMDBData
+import com.applications.mvc_practice_app.model.TMDBData
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 

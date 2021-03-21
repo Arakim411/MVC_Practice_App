@@ -14,12 +14,18 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="RaitingBar" parent="Theme.AppCompat">
+    <style name="RatingBar" parent="Widget.AppCompat.RatingBar.Indicator">
         <item name="colorControlNormal">#80201D1D</item>
         <item name="colorControlActivated">#FFD600</item>
         <item name="android:isIndicator">true</item>
         <item name="android:onClick">null</item>
     </style>
 
+    <style name="RatingBar_small" parent="Widget.AppCompat.RatingBar.Small">
+        <item name="colorControlNormal">#80201D1D</item>
+        <item name="colorControlActivated">#FFD600</item>
+        <item name="android:isIndicator">true</item>
+        <item name="android:onClick">null</item>
+    </style>
 
 </resources>

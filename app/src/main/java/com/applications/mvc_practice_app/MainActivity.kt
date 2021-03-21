@@ -2,9 +2,11 @@ package com.applications.mvc_practice_app
 
 import android.os.Bundle
 import com.applications.mvc_practice_app.listeners.ViewerEvents
+import com.applications.mvc_practice_app.model.TMDBData
 import com.applications.mvc_practice_app.networking.Constants
 import com.applications.mvc_practice_app.screens.fragmentHome.FragmentHome
 import com.applications.mvc_practice_app.screens.ListFragmentComponents.FragmentShowMovies
+import com.applications.mvc_practice_app.screens.common.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 private const val TAG = "mainActivity"

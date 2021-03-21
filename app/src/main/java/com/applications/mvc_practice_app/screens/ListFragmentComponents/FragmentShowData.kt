@@ -5,8 +5,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.applications.mvc_practice_app.FragmentToolBarData
-import com.applications.mvc_practice_app.TMDBData
+import com.applications.mvc_practice_app.model.FragmentToolBarData
+import com.applications.mvc_practice_app.model.TMDBData
 import com.applications.mvc_practice_app.model.movie.Movie
 import com.applications.mvc_practice_app.networking.Constants
 import com.applications.mvc_practice_app.screens.common.BaseFragment
@@ -52,7 +52,8 @@ class FragmentShowMovies : BaseFragment(), ShowDataViewsMvc.RecyclerViewEvents, 
         super.onStop()
     }
 
-    private fun fetchMovies(type: Constants.ListType, page: Int) {
+    //any idea how to refactor this function ?
+    private fun fetchData(type: Constants.ListType, page: Int) {
         coroutineScope.launch {
             val startTime = System.currentTimeMillis()
             viewsMvc.showProgressIcon()
@@ -111,7 +112,7 @@ class FragmentShowMovies : BaseFragment(), ShowDataViewsMvc.RecyclerViewEvents, 
         else
             viewsMvc.rootView.btnLastPage.visibility = View.INVISIBLE
 
-        fetchMovies(listType,page)
+        fetchData(listType,page)
     }
 
     override fun onNextClick() {

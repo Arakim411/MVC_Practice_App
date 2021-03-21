@@ -1,13 +1,11 @@
 package com.applications.mvc_practice_app.screens.detailsFragmentComponent
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.applications.mvc_practice_app.FragmentToolBarData
-import com.applications.mvc_practice_app.R
-import com.applications.mvc_practice_app.TMDBData
+import com.applications.mvc_practice_app.model.FragmentToolBarData
+import com.applications.mvc_practice_app.model.TMDBData
 import com.applications.mvc_practice_app.model.movie.Movie
 import com.applications.mvc_practice_app.model.tv_show.TvShow
 import com.applications.mvc_practice_app.screens.common.BaseFragment

@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.applications.mvc_practice_app.R
-import com.applications.mvc_practice_app.TMDBData
+import com.applications.mvc_practice_app.model.TMDBData
 import com.applications.mvc_practice_app.model.movie.Movie
 import com.applications.mvc_practice_app.model.tv_show.TvShow
 import com.applications.mvc_practice_app.networking.Constants
