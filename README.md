@@ -14,6 +14,6 @@ Viewing list of:
 Clicking on movie/tvshow shows details of them.
 
 # Purpose
-I Created this aplication to learn **clean architecture** and **MVC Patter** (I know it may be deprecated and using MVVM is more common in these days)
+I Created this aplication to learn **clean architecture** and **MVC Patter** (I know it may be deprecated and using MVVM is more common in these days) [My Project with MVVM architecture](https://github.com/Arakim411/FishCardsApp)
 
 
